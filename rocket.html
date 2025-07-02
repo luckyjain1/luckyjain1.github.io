@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Jain</title>
+  <style>
+    @font-face {
+      font-family: 'Atop';
+      src: url('Atop.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Atop', cursive;
+      margin: 0;
+      overflow-x: hidden;
+      color: white;
+      background-color: #000625;
+    }
+
+
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 150px; /* 👈 Starts lower */
+      transition: top 0.3s ease;
+      z-index: 20;
+      /* background-color: #00062576; */
+    }
+
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00ccff;
+    }
+
+
+    .container {
+      height: 500vh;
+      position: relative;
+      background: transparent;
+    }
+
+    .rocket {
+      position: fixed;
+      left: 5%;
+      width: 90px;
+      height: 150px;
+      background: url('ChatGPT Image Jul 2, 2025, 11_33_29 AM.png') no-repeat center;
+      background-size: contain;
+      z-index: 10;
+    }
+    
+    .rocket-track {
+      position: fixed;
+      left: 9.5%; /* 👈 Tweak this to align center with your rocket */
+      top: 150px; /* 👈 Match minTop */
+      width: 4px;
+      height: calc(100vh - 350px); /* 👈 Stretches up from the rocket */
+      background: rgba(255, 255, 255, 0.2);
+      z-index: 5;
+      border-radius: 2px;
+      opacity: 30%;
+    }
+
+    .content {
+      position: absolute;
+      bottom: 200px;
+      width: 100%;
+      text-align: center;
+      padding: 20px 20px 0;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 6em;
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1em;
+    }
+
+    section {
+      padding: 200px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card {
+      font-family: 'Inter', sans-serif;
+      background: rgba(255, 255, 255, 0.046);
+      border-radius: 15px;
+      padding: 20px;
+      width: 600px;
+      height: 300px;
+      text-align: left;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.3em;
+      color: #00ccff;
+    }
+
+    .card p {
+      font-size: 0.9em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="rocket-track"></div>
+    <div class="rocket" id="rocket"></div>
+
+    <div class="navbar" id="navbar">
+      <a href="#home" data-target="home">Home</a>
+      <a href="#projects" data-target="projects">Projects</a>
+      <a href="#research" data-target="research">Research</a>
+      <a href="#" onclick="window.open('Resume Lucky Jain.pdf'); return false;">Resume</a>
+    </div>
+
+    <section id="research">
+
+      <div class="cards-container">
+        <div class="card">
+          <h3>EEG Seizure Prediction</h3>
+          <p>Used autoencoders and latent space modeling to find preictal brain states from EEG data.</p>
+        </div>
+        <div class="card">
+          <h3>CEBRA + Pupil Diameter</h3>
+          <p>Ran CEBRA on neural datasets aligned to pupil size as behavioral variable for unsupervised decoding.</p>
+        </div>
+        <div class="card">
+          <h3>Environmental Enrichment</h3>
+          <p>Studied how continual learning in AI can draw from neuroscience experiments in enriched cages.</p>
+        </div>
+      </div>
+      <div class="section-title">Research</div>
+    </section>
+
+    <section id="projects">
+      
+      <div class="cards-container">
+        <div class="card">
+          <h3>AI Speech Coach</h3>
+          <p>Built a React Native app that uses AI to give public speaking feedback in real time.</p>
+        </div>
+        <div class="card">
+          <h3>Semester.ly Chatbot</h3>
+          <p>Integrated GPT-powered search for a college course planner app using Django & React.</p>
+        </div>
+        <div class="card">
+          <h3>Animal Adoption Site</h3>
+          <p>Full-stack Node.js web app for browsing, filtering, and adopting real animals with login support.</p>
+        </div>
+      </div>
+      <div class="section-title">Projects</div>
+    </section>
+
+    <div id="home" class="content">
+      <h2>↑</h2>
+      <p>Scroll up to learn more</p>
+      <h1>LUCKY JAIN</h1>
+    </div>
+  </div>
+
+  <script>
+    const rocket = document.getElementById("rocket");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+      const scrollPercent = scrollY / maxScroll;
+
+      const minTop = 100;  // 🔼 Adjust this to raise or lower the starting point
+      const maxTop = 450;   // 🔼 Rocket ends near top (lower = higher on screen)
+
+      const rocketTop = minTop - scrollPercent * (minTop - maxTop);
+      rocket.style.top = `${rocketTop}px`;
+    });
+  </script>
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+      const scrollPercent = scrollY / maxScroll;
+
+      if (scrollPercent > 0.9) {
+        // Still near bottom (home): lower navbar
+        navbar.style.top = "150px";
+      } else {
+        // Scrolled up: stick to top
+        navbar.style.top = "0px";
+      }
+    });
+  </script>
+  <script>
+    document.querySelectorAll('.navbar a[data-target]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('data-target');
+        const targetEl = document.getElementById(targetId);
+
+        if (targetEl) {
+          const topOfSection = targetEl.getBoundingClientRect().top + window.scrollY;
+          const heightOfSection = targetEl.offsetHeight;
+
+          let scrollTarget;
+
+          if (targetId === 'home') {
+            // Scroll to very bottom (home content is absolutely positioned)
+            scrollTarget = document.body.scrollHeight - window.innerHeight;
+          } else {
+            // Scroll to bottom of section
+            scrollTarget = topOfSection + heightOfSection - window.innerHeight - 150;
+          }
+
+          window.scrollTo({
+            top: scrollTarget,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
