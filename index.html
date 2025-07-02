@@ -54,27 +54,31 @@
       background: transparent;
     }
 
-    .rocket {
-      position: fixed;
-      left: 5%;
-      width: 90px;
-      height: 150px;
-      background: url('ChatGPT Image Jul 2, 2025, 11_33_29 AM.png') no-repeat center;
-      background-size: contain;
-      z-index: 10;
-    }
-    
-    .rocket-track {
-      position: fixed;
-      left: 9.5%; /* 👈 Tweak this to align center with your rocket */
-      top: 150px; /* 👈 Match minTop */
-      width: 4px;
-      height: calc(100vh - 350px); /* 👈 Stretches up from the rocket */
-      background: rgba(255, 255, 255, 0.2);
-      z-index: 5;
-      border-radius: 2px;
-      opacity: 30%;
-    }
+    .rocket-wrapper {
+  position: fixed;
+  left: 5%;
+  top: 150px; /* match starting point */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ensures rocket and track align */
+}
+
+.rocket-track {
+  width: 4px;
+  height: calc(100vh - 350px);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  opacity: 30%;
+  top: 150px;
+}
+
+.rocket {
+  width: 90px;
+  height: 150px;
+  background: url('ChatGPT Image Jul 2, 2025, 11_33_29 AM.png') no-repeat center;
+  background-size: contain;
+}
 
     .content {
       position: absolute;
@@ -177,8 +181,10 @@
 </head>
 <body>
   <div class="container">
-    <div class="rocket-track"></div>
-    <div class="rocket" id="rocket"></div>
+    <div class="rocket-wrapper">
+      <div class="rocket-track"></div>
+      <div class="rocket" id="rocket"></div>
+    </div>
 
     <div class="navbar" id="navbar">
       <a href="#home" data-target="home">Home</a>
@@ -248,20 +254,18 @@
   </div>
 
   <script>
-    const rocket = document.getElementById("rocket");
+    const rocketWrapper = document.querySelector(".rocket-wrapper");
 
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = scrollY / maxScroll;
 
-      const scrollPercent = scrollY / maxScroll;
-
-      const minTop = 100;  // 🔼 Adjust this to raise or lower the starting point
-      const maxTop = 450;   // 🔼 Rocket ends near top (lower = higher on screen)
-
-      const rocketTop = minTop - scrollPercent * (minTop - maxTop);
-      rocket.style.top = `${rocketTop}px`;
-    });
+  const minTop = 100;
+  const maxTop = 450;
+  const rocketTop = minTop - scrollPercent * (minTop - maxTop);
+  rocketWrapper.style.top = `${rocketTop}px`;
+});
   </script>
   <script>
     const navbar = document.getElementById("navbar");
