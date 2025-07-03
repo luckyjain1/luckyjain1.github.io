@@ -311,12 +311,14 @@ window.addEventListener("scroll", () => {
     });
   </script>
   <script>
-  window.onload = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
-  };
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }, 100); // wait 100ms to allow DOM to settle
+  });
 </script>
 <script>
   const clouds = document.querySelectorAll('.cloud');
