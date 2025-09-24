@@ -18,10 +18,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    position: fixed;
-    top: 100px; /* 👈 Starts lower */
-    transition: top 0.3s ease;
-    z-index: 20;
+    position: static;       /* <-- not fixed */
+    padding: 24px 0;        /* some breathing room */
+    z-index: 20;            /* stays above clouds */
   }
 
 
@@ -31,9 +30,17 @@
     margin: 0 20px;
     font-size: 2.1em;
     transition: color 0.3s;
+    position: relative;
+    padding: 6px 14px;
+    border-radius: 30px;
   }
 
-  .navbar a.active, .navbar a:hover { text-shadow: 0 0 8px #9cddf3, 0 0 16px #9cddf3; }
+  .navbar a:hover,
+  .navbar a.active {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    
+  }
 
   .container {
     position: relative;
@@ -44,7 +51,7 @@
   .content {
     width: 100%;
     position: relative;
-    margin-top: 300px;
+    margin-top: 200px;
     text-align: center;
     padding: 20px;
     padding-bottom: 150px;
