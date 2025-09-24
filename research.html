@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Research — Lucky Jain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./common.css" />
+
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="#" onclick="window.open('Resume Lucky Jain.pdf'); return false;">Resume</a>
+    </nav>
+
+    <div class="clouds-container">
+        <img src="cloud1.png" class="cloud" style="top: 5vh;">
+        <img src="cloud2.png" class="cloud" style="top: 20vh;">
+        <img src="cloud3.png" class="cloud" style="top: 35vh;">
+        <img src="cloud4.png" class="cloud" style="top: 50vh;">
+        <img src="cloud5.png" class="cloud" style="top: 65vh;">
+        <img src="cloud6.png" class="cloud" style="top: 80vh;">
+        <img src="cloud1.png" class="cloud" style="top: 95vh;">
+        <img src="cloud2.png" class="cloud" style="top: 110vh;">
+        <img src="cloud3.png" class="cloud" style="top: 135vh;">
+        <img src="cloud4.png" class="cloud" style="top: 150vh;">
+        <img src="cloud5.png" class="cloud" style="top: 165vh;">
+        <img src="cloud6.png" class="cloud" style="top: 180vh;">
+    </div>
+  
+    <main class="page">
+      <section id="research">
+  
+        <div class="cards-container">
+  
+          <div class="card">
+            <div class="card-content">
+            <h3>Researcher</h3>
+            <h4>LCICM @ JHMI</h4>
+            <p>Engineered 10+ time-series features (vitals, meds, infections) improving ML model accuracy for ICU delirium prediction.</p>
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">SciPy</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">Predictive Modeling</span>
+              </div>
+          </div>
+          <a
+            class="preview-link"
+            href="https://journals.lww.com/anesthesiology/fulltext/2023/03000/predicting_intensive_care_delirium_with_machine.15.aspx"
+            target="_blank"
+            rel="noopener"
+            aria-label="Open related LCICM paper (opens in new tab)"
+          >
+            <img src="delirium-features.jpeg" alt="Paper preview">
+          </a>
+        </div>
+          <div class="card">
+            <div class="card-content">
+            <h3>Decoding Lead</h3>
+            <h4>BCI Society @ JHU</h4>
+            <p>Leading ML pipeline for EEG image construction decoding; conducting reward vs. punishment EEG experiment for IEEE presentation.</p>
+            <div class="tags">
+                <span class="tag">PyTorch</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">EEG Processing</span>
+                <span class="tag">Neural Decoding</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Experimental Design</span>
+              </div>
+          </div>
+          <div class="preview-image">
+            <img src="motor-imagery.png" alt="Paper preview">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Researcher</h3>
+            <h4>Neural Dynamics & Behavior Lab @ UCI</h4>
+            <p>Implemented PyTorch embeddings for EEG decoding, outperforming PCA/raw baselines in accuracy and signal representation.</p>
+            <div class="tags">
+                <span class="tag">Representation Learning</span>
+                <span class="tag">CEBRA</span>
+                <span class="tag">PCA</span>
+                <span class="tag">Neural Decoding</span>
+                <span class="tag">Embedding Models</span>
+              </div>
+          </div>
+          <div class="preview-image">
+            <img src="cebra.png" alt="Paper preview">
+          </div>
+        </div>
+      </div>  
+    </section>
+    <script>
+        const clouds = document.querySelectorAll('.cloud');
+    
+        clouds.forEach((cloud, i) => {
+          // Vertical placement (vh is fine)
+          const minVH = -10, maxVH = 90;
+          const topVH = minVH + Math.random() * (maxVH - minVH);
+          cloud.style.top = `${topVH}vh`;
+    
+          // Vary speed and size
+          const duration = 100 + Math.random() * 40;         // 50–90s
+          const delay = -Math.random() * duration;          // negative delay = already in-flight
+    
+          cloud.style.animationDuration = `${duration}s`;
+          cloud.style.animationDelay = `${delay}s`;
+          cloud.style.transform = `translateX(-40vw)`;
+        });
+    </script>
+</body>
+</html>

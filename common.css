@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'Atop';
+    src: url('Atop.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Atop', cursive;
+    margin: 0;
+    overflow-x: hidden;
+    color: white;
+    background-color: #50c2e7;
+  }
+
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 100px; /* 👈 Starts lower */
+    transition: top 0.3s ease;
+    z-index: 20;
+  }
+
+
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 2.1em;
+    transition: color 0.3s;
+  }
+
+  .navbar a.active, .navbar a:hover { text-shadow: 0 0 8px #9cddf3, 0 0 16px #9cddf3; }
+
+  .container {
+    position: relative;
+    background: transparent;
+  }
+
+
+  .content {
+    width: 100%;
+    position: relative;
+    margin-top: 300px;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 150px;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 6em;
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1em;
+  }
+
+  /* Clouds layer spans the viewport, always behind content */
+  .clouds-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Clouds: only animate via transform (don’t set left in JS) */
+  .cloud {
+    position: absolute;
+    width: 450px;                /* you can randomize size in JS */
+    will-change: transform;      /* perf hint */
+    opacity: 1;
+    transform: translateX(-40vw); /* start well off-screen */
+    animation: floatCloud 60s linear infinite;
+  }
+
+  @keyframes floatCloud {
+    0%   { transform: translateX(-40vw); }
+    100% { transform: translateX(120vw); }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cloud { animation: none; }
+  }
+
+      /* Page container leaves room for fixed navbar */
+      main.page {
+        padding: calc(var(--nav-offset) + 80px) 20px 120px; /* top padding so content isn’t under nav */
+      }
+  
+      /* Cards */
+      .cards-container {
+        display: grid;
+        gap: 24px;
+        justify-content: center;
+      }
+  
+      .card {
+        font-family: 'Inter', sans-serif;
+        width: min(900px, 90vw);
+        padding: 20px;
+        border-radius: 15px;
+        background: #73CEEC;
+        box-shadow: 0 0 20px rgba(0,0,0,.4);
+        display: grid;
+        grid-template-columns: 1fr max-content; /* text | image */
+        gap: 16px;
+        align-items: center;
+        z-index: 2;
+      }
+  
+      .card-content { display: grid; gap: 6px; }
+      .card h3 { margin: 0 0 2px; font-size: 1.3em; color: #fff; }
+      .card h4 { margin: 0; font-weight: 500; opacity: .95; }
+      .card p  { margin: 0; }
+  
+      /* Right image: linked */
+      .preview-link {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+        height: 200px; width: auto; max-width: 320px;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+        transition: transform .25s ease;
+      }
+      .preview-link:hover, .preview-link:focus-visible { transform: scale(1.02); }
+      .preview-link::after {
+        content: "↗"; position: absolute; top: 8px; right: 10px; opacity: .9;
+      }
+      .preview-link img {
+        height: 100%; width: auto; object-fit: contain; display: block;
+      }
+  
+      @media (max-width: 720px) {
+        .card { grid-template-columns: 1fr; }
+        .preview-link, .preview-image {
+          width: 100%; height: auto;
+        }
+        .preview-link img, .preview-image img {
+          width: 100%; height: auto; object-fit: contain;
+        }
+      }
+
+      /* Right image: static */
+    .preview-image {
+        border-radius: 12px; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+        height: 200px; width: auto; max-width: 320px;
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+      }
+      .preview-image img {
+        height: 100%; width: auto; object-fit: contain; display: block;
+      }
+  
+      .tags {
+          margin-top: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+      }
+  
+      .tag {
+          background-color: #f0f0f0;
+          color: #333;
+          font-size: 0.8rem;
+          padding: 4px 10px;
+          border-radius: 12px;
+          font-weight: 500;
+      }

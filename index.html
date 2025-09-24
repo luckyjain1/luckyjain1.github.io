@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Jain</title>
+  <link rel="stylesheet" href="./common.css" />
+</head>
+<body>
+  <div class="container">
+
+
+    <div class="navbar" id="navbar">
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="#" onclick="window.open('Resume Lucky Jain.pdf'); return false;">Resume</a>
+    </div>
+
+    <div class="clouds-container">
+      <img src="cloud1.png" class="cloud" style="top: 5vh;">
+      <img src="cloud2.png" class="cloud" style="top: 20vh;">
+      <img src="cloud3.png" class="cloud" style="top: 35vh;">
+      <img src="cloud4.png" class="cloud" style="top: 50vh;">
+      <img src="cloud5.png" class="cloud" style="top: 65vh;">
+      <img src="cloud6.png" class="cloud" style="top: 80vh;">
+      <img src="cloud1.png" class="cloud" style="top: 95vh;">
+      <img src="cloud2.png" class="cloud" style="top: 110vh;">
+      <img src="cloud3.png" class="cloud" style="top: 135vh;">
+      <img src="cloud4.png" class="cloud" style="top: 150vh;">
+      <img src="cloud5.png" class="cloud" style="top: 165vh;">
+      <img src="cloud6.png" class="cloud" style="top: 180vh;">
+    </div>
+    <div class="content">
+      <h1>LUCKY JAIN</h1>
+      <p>hi! i'm a sophomore compsci + neuro at jhu!</p>
+    </div>
+  </div>
+
+  <script>
+    const clouds = document.querySelectorAll('.cloud');
+
+    clouds.forEach((cloud, i) => {
+      // Vertical placement (vh is fine)
+      const minVH = -10, maxVH = 90;
+      const topVH = minVH + Math.random() * (maxVH - minVH);
+      cloud.style.top = `${topVH}vh`;
+
+      // Vary speed and size
+      const duration = 100 + Math.random() * 40;         // 50–90s
+      const delay = -Math.random() * duration;          // negative delay = already in-flight
+
+      cloud.style.animationDuration = `${duration}s`;
+      cloud.style.animationDelay = `${delay}s`;
+      cloud.style.transform = `translateX(-40vw)`;
+    });
+  </script>
+</body>
+</html>

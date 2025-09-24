@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects — Lucky Jain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./common.css" />
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="research.html">Research</a>
+      <a href="#" onclick="window.open('Resume Lucky Jain.pdf'); return false;">Resume</a>
+    </nav>
+
+    <div class="clouds-container">
+        <img src="cloud1.png" class="cloud" style="top: 5vh;">
+        <img src="cloud2.png" class="cloud" style="top: 20vh;">
+        <img src="cloud3.png" class="cloud" style="top: 35vh;">
+        <img src="cloud4.png" class="cloud" style="top: 50vh;">
+        <img src="cloud5.png" class="cloud" style="top: 65vh;">
+        <img src="cloud6.png" class="cloud" style="top: 80vh;">
+        <img src="cloud1.png" class="cloud" style="top: 95vh;">
+        <img src="cloud2.png" class="cloud" style="top: 110vh;">
+        <img src="cloud3.png" class="cloud" style="top: 135vh;">
+        <img src="cloud4.png" class="cloud" style="top: 150vh;">
+        <img src="cloud5.png" class="cloud" style="top: 165vh;">
+        <img src="cloud6.png" class="cloud" style="top: 180vh;">
+    </div>
+  
+    <main class="page">
+      <section id="projects">
+  
+        <div class="cards-container">
+  
+          <div class="card">
+            <div class="card-content">
+          <h3>Co-Creator</h3>
+          <h4>Eyedentify-AI</h4>
+          <p>Built ML diagnostic system (94% accuracy) using CNNs and Grad-CAM explainability; optimized backend for real-time inference; deployed full-stack platform to live users.</p>
+          <div class="tags">
+            <span class="tag">Neural Networks</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">Grad-CAM</span>
+            <span class="tag">Explainable AI</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Docker</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </div>
+        <a
+          class="preview-link"
+          href="https://eyedentify-ai.vercel.app/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open related LCICM paper (opens in new tab)"
+        >
+          <img src="eyedentify-ai.png" alt="Paper preview">
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-content">  
+          <h3>Full-Stack Developer</h3>
+          <h4>Semester.ly</h4>
+          <p>Developed GPT-powered course recommendation engine; integrated NLP query parsing with backend course graph; serving 4,000+ students.</p>
+          <div class="tags">
+            <span class="tag">Natural Language Processing</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">OpenAI GPT API</span>
+            <span class="tag">Django</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">TypeScript</span>
+          </div>
+        </div>
+        <a
+          class="preview-link"
+          href="https://jhu.semester.ly/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open related LCICM paper (opens in new tab)"
+        >
+          <img src="semesterly.png" alt="Paper preview">
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-content">  
+          <h3>Project Lead</h3>
+          <h4>Baltimore Foodline</h4>
+          <p>Built Ignite Fund–backed platform with automated data pipelines and real-time inventory updates from food pantries using scalable backend architecture.</p>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Twilio</span>
+            <span class="tag">Vercel</span>
+          </div>
+        </div>
+        <a
+          class="preview-link"
+          href="https://baltimorefoodline.vercel.app/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open related LCICM paper (opens in new tab)"
+        >
+          <img src="baltimorefoodline.png" alt="Paper preview">
+        </a>
+      </div>
+      <div class="card">
+        <div class="card-content">  
+          <h3>Full-Stack Developer</h3>
+          <h4>COACH @ JHMI</h4>
+          <p>Deployed Android app + AWS portal with secure database backend supporting fear-learning research for 500+ participants.</p>
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">Android SDK</span>
+            <span class="tag">Java</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Flask</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Heroku</span>
+          </div>
+        </div>
+        <a
+          class="preview-link"
+          href="https://flare-portal-4cd977e0207e.herokuapp.com/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Open related LCICM paper (opens in new tab)"
+        >
+          <img src="flare.png" alt="Paper preview">
+        </a>
+      </div>
+    </div> 
+  </section>
+  <script>
+    const clouds = document.querySelectorAll('.cloud');
+
+    clouds.forEach((cloud, i) => {
+      // Vertical placement (vh is fine)
+      const minVH = -10, maxVH = 90;
+      const topVH = minVH + Math.random() * (maxVH - minVH);
+      cloud.style.top = `${topVH}vh`;
+
+      // Vary speed and size
+      const duration = 100 + Math.random() * 40;         // 50–90s
+      const delay = -Math.random() * duration;          // negative delay = already in-flight
+
+      cloud.style.animationDuration = `${duration}s`;
+      cloud.style.animationDelay = `${delay}s`;
+      cloud.style.transform = `translateX(-40vw)`;
+    });
+  </script>
+</body>
+</html>
