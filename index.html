@@ -8,24 +8,6 @@
   <title>Lucky Jain</title>
   <link rel="stylesheet" href="./common.css" />
 </head>
-<script>
-  // Get the last segment of the path (e.g. "projects.html" or "")
-  let currentPage = window.location.pathname.split("/").filter(Boolean).pop();
-
-  // Default to "index.html" if it's empty (root path like "/" or "/my-site/")
-  if (!currentPage) {
-    currentPage = "index.html";
-  }
-
-  document.querySelectorAll(".navbar a").forEach(link => {
-    const href = link.getAttribute("href");
-
-    // Match normal pages or index.html at root
-    if (href === currentPage || (currentPage === "index.html" && href.includes("index.html"))) {
-      link.classList.add("active");
-    }
-  });
-</script>
 
 <body>
   <div class="container">
@@ -74,6 +56,24 @@
       cloud.style.animationDuration = `${duration}s`;
       cloud.style.animationDelay = `${delay}s`;
       cloud.style.transform = `translateX(-40vw)`;
+    });
+  </script>
+  <script>
+    // Get the last segment of the path (e.g. "projects.html" or "")
+    let currentPage = window.location.pathname.split("/").filter(Boolean).pop();
+  
+    // Default to "index.html" if it's empty (root path like "/" or "/my-site/")
+    if (!currentPage) {
+      currentPage = "index.html";
+    }
+  
+    document.querySelectorAll(".navbar a").forEach(link => {
+      const href = link.getAttribute("href");
+  
+      // Match normal pages or index.html at root
+      if (href === currentPage || (currentPage === "index.html" && href.includes("index.html"))) {
+        link.classList.add("active");
+      }
     });
   </script>
 </body>
