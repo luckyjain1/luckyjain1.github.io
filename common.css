@@ -181,6 +181,16 @@
       .card h3 { margin: 0 0 2px; font-size: 1.3em; color: #fff; }
       .card h4 { margin: 0; font-weight: 500; opacity: .95; }
       .card p  { margin: 0; }
+
+      /* Date line under the card subtitle */
+      .card .card-date {
+        font-family: 'Nunito', sans-serif;
+        font-size: .85rem;
+        font-weight: 500;
+        letter-spacing: .02em;
+        opacity: .8;
+        margin: 0;
+      }
   
       /* Right image: linked */
       .preview-link {
